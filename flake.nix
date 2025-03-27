@@ -162,6 +162,10 @@
             '';
           }}/bin/train";
         };
+        convertMVTec = {
+          type = "app";
+          program = "${./scripts/convertMVTec.sh}";
+        };
         jupyter = {
           type = "app";
           program = "${pkgs.writeShellApplication {

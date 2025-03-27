@@ -4,7 +4,7 @@
   "EPOCHS": 3000,
   "T": 1000,
   "base_channels": 128,
-  "beta_schedule": "cosine",
+  "beta_schedule": "linear",
   "channel_mults": "",
   "loss-type": "l2",
   "loss_weight": "none",
@@ -18,5 +18,7 @@
   "dropout":0,
   "attention_resolutions":"32,16,8",
   "num_heads":4,
-  "num_head_channels":64
+  "num_head_channels":64,
+  "channels":3,
+  "dataset":"leather"
 }
