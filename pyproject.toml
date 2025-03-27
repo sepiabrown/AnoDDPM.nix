@@ -1,0 +1,46 @@
+[project]
+name = "AnoDDPM"
+version = "0.1.0"
+description = "An anomaly detection approach using DDPMs with simplex noise (PyTorch implementation)."
+authors = [
+  { name = "Julian Wyatt" }
+]
+requires-python = ">=3.12"
+dependencies = [
+  "numpy",
+  "torch",
+  "torchvision",
+  "matplotlib",
+  "pandas",
+  "numba",
+  "opencv-python",
+  "nibabel",
+  "scikit-image",
+  "scikit-learn",
+  ###
+  "calver",
+  "semantic-version",
+  "trove-classifiers",
+  "setuptools-scm",
+  "pluggy",
+  "setuptools-rust",
+  "libcst",
+]
+
+# [project.scripts]
+# train_script = "train:main"
+# save_train_statistics_script = "save_train_statistics:main"
+# save_test_statistics_script = "save_test_statistics:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "jupyter",
+    "ipykernel",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
