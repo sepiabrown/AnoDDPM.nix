@@ -154,11 +154,15 @@
           type = "app";
           program = "${pkgs.writeShellApplication {
             name = "train";
-            runtimeInputs = [ self.packages.x86_64-linux.default ];
+            runtimeInputs = [
+              self.packages.x86_64-linux.default
+              pkgs.coreutils
+              pkgs.moreutils
+            ];
             text = ''
-              # export NCCL_P2P_DISABLE="1" NCCL_IB_DISABLE="1"
-              exec ${self.packages.x86_64-linux.default}/bin/python \
-                diffusion_training.py 10
+              ${self.packages.x86_64-linux.default}/bin/python \
+                -u diffusion_training.py 10 \
+                | tee >(ts "%y%m%d %H:%M:%S" > logs/"$(date '+%y%m%d_%H%M%S.log')")
             '';
           }}/bin/train";
         };
